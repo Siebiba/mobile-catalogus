@@ -10,7 +10,7 @@ const reizen = ({navigation}) =>{
 
     const getReizen = async () => {
         try {
-            const response = await fetch ("https://siebedesign.be/wp-json/wp/v2/posts?categories=5", {
+            const response = await fetch ("https://siebedesign.be/wp-json/wp/v2/posts?categories=12", {
 
             })
             const json = await response.json();
@@ -36,7 +36,7 @@ const reizen = ({navigation}) =>{
         })
         const json = await response.json();
         console.log(json);
-        setReizen(json.results);
+        setReizen(json);
       }
     } catch (error) {
       console.error(error);
@@ -47,7 +47,7 @@ const reizen = ({navigation}) =>{
     return (
         <View style={styles.screen}>
           <TextInput
-        placeholder="search movie"
+        placeholder="search reis"
         style={styles.input}
         onChangeText={getByTitleSearch}//geeft argument enteredText mee, denk aan de taskInputHandler uit de todo app.
       />

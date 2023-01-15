@@ -5,17 +5,23 @@ import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 
 
 const ReisDetails = props => {
-  const [reisDetails, setReisDetails] = useState({});
+    const [test, setReisDetails] = useState([]);
+   
 
   const getDetailsById = async () => {
     try {
       const url = encodeURI("https://siebedesign.be/wp-json/wp/v2/posts/" + props.id + "/")
-      console.log(url)
+      
+
       const response = await fetch(url, {
 
       })
+
+
       const json = await response.json();
-      setReisDetails(json.results);
+     setReisDetails(json);
+     console.log(json)
+      console.log(test)
     } catch (error) {
       console.error(error);
     }
@@ -27,14 +33,11 @@ const ReisDetails = props => {
 
   return (
     <ScrollView>
-      
-      <Text style={styles.title}>{reisDetails.title}</Text>
-      <View style={styles.details}>
-        <Text>{reisDetails.plot}</Text>
-       
-      </View>
-
+        <View style={styles.details}>
+        
+        </View>
     </ScrollView>
+
   );
 }
 
